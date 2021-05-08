@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= h(yield(:title) || "Freshbnb") %></title>
+	<%= stylesheet_link_tag "application" %>
+	<%= stylesheet_link_tag "bootstrap" %>
+	<%= javascript_include_tag "jquery-2.1.1" %>
+	<%= javascript_include_tag "bootstrap" %>
+	<%= yield(:head) %>
+</head>
+<body>
+	
+	<%= render "layouts/navbar" %>
+
+	<div id="page" class="container">
+		<% flash.each do |name, msg| %>
+			<%= content_tag(:div,msg,:id=> "flash_#{name}") %>
+		<% end %>
+		<%= yield %>
+		<%= render "layouts/footer" %>
+	</div> <!--/.container-->
+
+
+</body>
+
+</html>
